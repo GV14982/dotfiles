@@ -42,7 +42,15 @@ symbol = " "
 symbol = " "
 
 [git_status]
-format = '([\[$all_status$ahead_$behind\]](style) )'
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "✘(red)"
+stashed = '[*$count](white)'
+staged = '[+$count](green)'
+untracked = '[?$count](blue)'
+modified = '[!$count](yellow)'
+renamed = '[»$count](orange)'
+deleted = '[-$count](red)'
+style = "white bold"
 
 [golang]
 symbol = " "

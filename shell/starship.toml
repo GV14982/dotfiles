@@ -43,14 +43,17 @@ symbol = " "
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
-conflicted = "✘(red)"
-stashed = '[*$count](white)'
+ahead = "[⇡$count](bright-green)"
+behind = "[⇣$count](bright-yellow)"
+conflicted = "✘(bright-red)"
+stashed = '[*$count](yellow)'
 staged = '[+$count](green)'
 untracked = '[?$count](blue)'
-modified = '[!$count](yellow)'
+modified = '[!$count](purple)'
 renamed = '[»$count](orange)'
 deleted = '[-$count](red)'
 style = "white bold"
+up_to_date = "[✓](green)"
 
 [golang]
 symbol = " "

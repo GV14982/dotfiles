@@ -54,14 +54,20 @@ lspconfig.sumneko_lua.setup{
     }
   }
 }
-lspconfig.gopls.setup{on_attach = on_attach, capabilities = capabilities}
-lspconfig.tsserver.setup{on_attach = on_attach, capabilities = capabilities}
-lspconfig.sqls.setup{on_attach = on_attach, capabilities = capabilities}
-lspconfig.solc.setup{on_attach = on_attach, capabilities = capabilities}
-lspconfig.html.setup{on_attach = on_attach, capabilities = capabilities}
-lspconfig.jsonls.setup{on_attach = on_attach, capabilities = capabilities}
-lspconfig.emmet_ls.setup{on_attach = on_attach, capabilities = capabilities}
-lspconfig.graphql.setup{on_attach = on_attach, capabilities = capabilities}
-lspconfig.eslint.setup{on_attach = on_attach, capabilities = capabilities}
-lspconfig.dockerls.setup{on_attach = on_attach, capabilities = capabilities}
-lspconfig.taplo.setup{on_attach = on_attach, capabilities = capabilities}
+
+local lsp_opts = { on_attach = on_attach, capabilities = capabilities }
+
+
+lspconfig.gopls.setup(lsp_opts)
+lspconfig.tsserver.setup(lsp_opts)
+lspconfig.sqls.setup(lsp_opts)
+lspconfig.solc.setup(lsp_opts)
+lspconfig.html.setup(lsp_opts)
+lspconfig.jsonls.setup(lsp_opts)
+lspconfig.emmet_ls.setup(lsp_opts)
+lspconfig.graphql.setup(lsp_opts)
+lspconfig.eslint.setup(lsp_opts)
+lspconfig.dockerls.setup(lsp_opts)
+lspconfig.taplo.setup(lsp_opts)
+lspconfig.rust_analyzer.setup(lsp_opts)
+lspconfig.svelte.setup(lsp_opts)

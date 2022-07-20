@@ -3,6 +3,35 @@ require'nvim-treesitter.configs'.setup {
   ignore_install = { 'phpdoc' },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
+  indentation = {
+    enable = true
+  },
+  incremental_selection = {
+    enable = true
+  },
+  autotag = {
+    enable = true,
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = true
+  },
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+  },
   highlight = {
     -- `false` will disable the whole extension
     enable = true,

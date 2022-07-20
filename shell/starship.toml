@@ -13,6 +13,11 @@ disabled = true
 [aws]
 disabled = true
 
+[status]
+format = "[$symbol]($style) "
+disabled = false
+symbol = ""
+not_found_symbol = "🔍"
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
@@ -90,3 +95,6 @@ symbol = "🅢 "
 
 [rust]
 symbol = " "
+
+[lua]
+symbol = " "

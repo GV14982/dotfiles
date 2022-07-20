@@ -1,12 +1,8 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
-
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'mofiqul/dracula.nvim'
+  use 'theacodes/witchhazel'
+  use 'norcalli/nvim-colorizer.lua'
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -14,21 +10,16 @@ return require('packer').startup(function(use)
     end
   }
   use {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup {}
-    end
-  }
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = 'v1.*',
-    config = function()
-      require("toggleterm").setup()
-    end
-  }
-  use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
+  }
+  use 'windwp/nvim-ts-autotag'
+  use 'theHamsta/nvim-treesitter-pairs'
+  use 'p00f/nvim-ts-rainbow'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use {
+    'akinsho/bufferline.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
   }
   use {
     'nvim-lualine/lualine.nvim',
@@ -45,7 +36,10 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons'} }
   }
-  use 'nvim-telescope/telescope-file-browser.nvim'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+  }
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -57,16 +51,19 @@ return require('packer').startup(function(use)
     'neovim/nvim-lspconfig',
   }
   use {
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip'
+  }
+  use {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-vsnip',
-    'hrsh7th/vim-vsnip'
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-nvim-lsp-document-symbol',
+    'hrsh7th/cmp-nvim-lua',
   }
+  use 'mechatroner/rainbow_csv'
   vim.opt.completeopt = { "menu", "menuone", "noselect" }
-  if Packer_bootstrap then
-    require('packer').sync()
-  end
 end)

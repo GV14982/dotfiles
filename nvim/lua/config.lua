@@ -11,3 +11,16 @@ set.number = true
 set.relativenumber = true
 set.termguicolors = true
 vim.cmd[[colorscheme dracula]]
+
+require('colorizer').setup {}
+require('bufferline').setup {
+  clickabl = false,
+  closable = false,
+  auto_hide = true,
+  tabpages = true
+}
+require('nvim-tree').setup{
+  view = {
+    adaptive_size = true
+  }
+}

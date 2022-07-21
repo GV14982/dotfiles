@@ -65,6 +65,12 @@ do
   fi
 done
 
+ceckFileLinkDir "$HOME/.local/share/nvim/site/pack/packer"
+if [[ $exists == "" ]]; then
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
+
 echo "Installing rust"
 rustup-init
 source "$HOME/.cargo/env"

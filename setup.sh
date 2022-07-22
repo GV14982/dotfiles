@@ -27,7 +27,7 @@ if [ $brewInstalled = false ]; then
 fi
 
 echo "Installing brew packages"
-brew bundle
+brew bundle -v
 
 if [[ $1 == "clean" ]]; then
   echo "Removing existing files/folders/links"

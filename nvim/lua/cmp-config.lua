@@ -1,5 +1,7 @@
 -- Setup nvim-cmp.
-local cmp = require'cmp'
+local cmp = require 'cmp'
+local luasnip = require 'luasnip'
+require("luasnip.loaders.from_vscode").lazy_load()
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
@@ -12,19 +14,38 @@ cmp.setup({
     documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i'}),
-    ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i'}),
+    ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+        -- elseif has_words_before() then
+        --   cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
     ['<Esc>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.,
     { name = 'buffer' },
-    {name = 'path'},
-    {name = 'nvim_lsp_document_symbol'},
-    {name = 'nvim_lsp_signature_help'},
-    {name = 'nvim_lua'},
+    { name = 'path' },
+    { name = 'nvim_lsp_document_symbol' },
+    { name = 'nvim_lsp_signature_help' },
+    { name = 'nvim_lua' },
   })
 })
 
@@ -41,7 +62,7 @@ cmp.setup.filetype('gitcommit', {
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    {name = 'nvim_lsp_document_symbol'},
+    { name = 'nvim_lsp_document_symbol' },
     { name = 'buffer' }
   }
 })

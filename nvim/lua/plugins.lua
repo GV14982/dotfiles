@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
   use 'theHamsta/nvim-treesitter-pairs'
   use 'p00f/nvim-ts-rainbow'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'windwp/nvim-autopairs'
   use {
     'akinsho/bufferline.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}
@@ -37,9 +38,10 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons'} }
   }
   use {
-    'kyazdani42/nvim-tree.lua',
+    "nvim-telescope/telescope-file-browser.nvim",
     requires = 'kyazdani42/nvim-web-devicons',
   }
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -52,7 +54,8 @@ return require('packer').startup(function(use)
   }
   use {
     'L3MON4D3/LuaSnip',
-    'saadparwaiz1/cmp_luasnip'
+    'saadparwaiz1/cmp_luasnip',
+    "rafamadriz/friendly-snippets",
   }
   use {
     'hrsh7th/cmp-nvim-lsp',
@@ -65,5 +68,25 @@ return require('packer').startup(function(use)
     'hrsh7th/cmp-nvim-lua',
   }
   use 'mechatroner/rainbow_csv'
+  use 'folke/lsp-colors.nvim'
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
+  use 'nvim-telescope/telescope-project.nvim'
+  use 'nvim-telescope/telescope-symbols.nvim'
+  use "nvim-telescope/telescope-github.nvim"
+  use 'glepnir/dashboard-nvim'
+  use "ray-x/lsp_signature.nvim"
+  use "benfowler/telescope-luasnip.nvim"
+  use 'f-person/git-blame.nvim'
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+  }
+  use 'itchyny/vim-cursorword'
+  use 'tpope/vim-surround'
+
   vim.opt.completeopt = { "menu", "menuone", "noselect" }
 end)

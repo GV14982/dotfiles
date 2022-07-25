@@ -19,6 +19,6 @@ ctrl + alt - g : yabai -m window --grid 1:3:2:1:1:1
 ctrl + alt - return : yabai -m window --grid 1:1:0:0:1:1
 alt + shift - w : yabai -m window --close
 alt + shift - n : yabai -m space --focus next
-alt - 2 : yabai -m space --focus prev
+alt + shift - p : yabai -m space --focus prev
 ctrl + alt - n : yabai -m window --space next
 ctrl + alt - p : yabai -m window --space prev

@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
-
 local set = vim.opt
+local home = os.getenv("HOME")
 
 set.tabstop = 2
 set.shiftwidth = 2
@@ -10,8 +10,10 @@ set.autoindent = true
 set.number = true
 set.relativenumber = true
 set.termguicolors = true
-vim.cmd[[colorscheme dracula]]
+vim.cmd [[colorscheme dracula]]
 
+require('todo-comments').setup {}
+require("nvim-autopairs").setup {}
 require('colorizer').setup {}
 require('bufferline').setup {
   clickabl = false,
@@ -19,8 +21,26 @@ require('bufferline').setup {
   auto_hide = true,
   tabpages = true
 }
-require('nvim-tree').setup{
-  view = {
-    adaptive_size = true
-  }
+local db = require('dashboard')
+db.preview_command = 'cat | lolcat -F 0.3'
+db.preview_file_path = home .. '/.config/nvim/neovim.txt'
+db.preview_file_width = 68
+db.preview_file_height = 7
+db.custom_center = {
+  { icon = '  ',
+    desc = 'Find  File                              ',
+    action = 'Telescope find_files find_command=rg,--hidden,--files',
+    shortcut = 'SPC f f' },
+  { icon = '  ',
+    desc = 'File Browser                            ',
+    action = 'NvimTreeToggle',
+    shortcut = 'SPC f b' },
+  { icon = '  ',
+    desc = 'Find  word                              ',
+    action = 'Telescope live_grep',
+    shortcut = 'SPC f w' },
+  { icon = '  ',
+    desc = 'Open Personal dotfiles                  ',
+    action = 'e ~/dotfiles',
+    shortcut = 'SPC f d' },
 }

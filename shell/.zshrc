@@ -23,7 +23,8 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 eval "$(starship init zsh)"
-eval $(thefuck --alias)
+eval "$(thefuck --alias)"
+eval "$(fnm env --use-on-cd)"
 # autoload -Uz vcs_info
 # precmd_vcs_info() { vcs_info }
 # precmd_functions+=( precmd_vcs_info )
@@ -55,3 +56,4 @@ if [ -f '/Users/gvqz/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gvqz/googl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gvqz/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/gvqz/google-cloud-sdk/completion.zsh.inc'; fi
+fpath+=~/.zfunc

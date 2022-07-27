@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-files=("$HOME/.config/kitty" "$HOME/.config/nvim" "$HOME/.config/yabai" "$HOME/.config/skhd" "$HOME/.zshrc" "$HOME/.asdfrc" "$HOME/.tool-versions" "$HOME/.tmux.conf" "$HOME/.config/starship.toml" "$HOME/antigen.zsh")
+files=("$HOME/.config/kitty" "$HOME/.config/nvim" "$HOME/.config/yabai" "$HOME/.config/skhd" "$HOME/.zshrc" "$HOME/.tmux.conf" "$HOME/.config/starship.toml" "$HOME/antigen.zsh")
 exists=""
 command -v brew &> /dev/null && brewInstalled=true || brewInstalled=false
 
@@ -70,14 +70,11 @@ echo "Installing rust"
 rustup-init
 source "$HOME/.cargo/env"
 
-echo "Setup asdf"
-IFS='
-'
-for plugin in $(cat asdf.plugins)
-do
-  stripped=$(echo $plugin | sed 's/ \{1,\}/ /g')
-  echo installing plugin $stripped
-  # Idk why it wouldn't let me just run the command, so this is kind of a hacky workaround
-  echo asdf plugin-add $stripped | sh
-done
-asdf install
+echo "Setup fnm completions"
+mkdir $HOME/.zfunc
+fnm completions --shell zsh > $HOME/.zfunc/_fnm
+
+echo "Setup node lts, yarn and pnpm"
+eval "$(fnm env --use-on-cd)"
+fnm install --lts
+npm i --location=global yarn pnpm --force

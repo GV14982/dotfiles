@@ -70,6 +70,14 @@ echo "Installing rust"
 rustup-init
 source "$HOME/.cargo/env"
 
-echo "Installing yarn and pnpm"
-npm i -g --force yarn pnpm
-nvim +PackerSync +qall
+echo "Setup asdf"
+IFS='
+'
+for plugin in $(cat asdf.plugins)
+do
+  stripped=$(echo $plugin | sed 's/ \{1,\}/ /g')
+  echo installing plugin $stripped
+  # Idk why it wouldn't let me just run the command, so this is kind of a hacky workaround
+  echo asdf plugin-add $stripped | sh
+done
+asdf install

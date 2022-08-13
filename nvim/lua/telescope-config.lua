@@ -32,6 +32,7 @@ telescope.load_extension "file_browser"
 telescope.load_extension "project"
 telescope.load_extension "gh"
 telescope.load_extension "luasnip"
+telescope.load_extension "lsp_handlers"
 local opts = { noremap = true }
 vim.keymap.set('n', '<C-p>', builtin.find_files, opts)
 vim.keymap.set('n', '<leader>buf', builtin.buffers, opts)

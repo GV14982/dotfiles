@@ -41,6 +41,8 @@ return require('packer').startup(function(use)
     "nvim-telescope/telescope-file-browser.nvim",
     requires = 'kyazdani42/nvim-web-devicons',
   }
+  use 'stevearc/dressing.nvim'
+  use "gbrlsnchs/telescope-lsp-handlers.nvim"
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use {
     'numToStr/Comment.nvim',

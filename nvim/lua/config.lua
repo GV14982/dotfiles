@@ -12,6 +12,12 @@ set.relativenumber = true
 set.termguicolors = true
 vim.cmd [[colorscheme dracula]]
 
+require('dressing').setup({
+  select = {
+    enabled = true,
+    backend = "telescope"
+  }
+})
 require('todo-comments').setup {}
 require("nvim-autopairs").setup {}
 require('colorizer').setup {}

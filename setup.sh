@@ -1,6 +1,6 @@
 #!/bin/sh
 
-files=("$HOME/.config/kitty" "$HOME/.config/nvim" "$HOME/.config/yabai" "$HOME/.config/skhd" "$HOME/.zshrc" "$HOME/.tmux.conf" "$HOME/.config/starship.toml" "$HOME/antigen.zsh")
+files=("$HOME/.config/kitty" "$HOME/.config/nvim" "$HOME/.config/yabai" "$HOME/.config/skhd" "$HOME/.zshrc" "$HOME/.config/starship.toml" "$HOME/antigen.zsh")
 exists=""
 command -v brew &> /dev/null && brewInstalled=true || brewInstalled=false
 
@@ -45,7 +45,7 @@ do
     if [[ $i =~ .*(kitty|starship).* ]]; then
       src="$(pwd)/shell/$val"
       dest="$HOME/.config/$val"
-    elif [[ $i =~ .*(zsh|tmux|antigen|asdf|tool-versions).* ]]; then
+    elif [[ $i =~ .*(zsh|antigen|asdf|tool-versions).* ]]; then
       src="$(pwd)/shell/$val"
       dest="$HOME/$val"
     elif [[ $i =~ .*(yabai|skhd).* ]]; then

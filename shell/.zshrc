@@ -1,9 +1,3 @@
-ZSH_TMUX_AUTOSTART=true
-
-bindkey "\e[1;3D" backward-word
-bindkey "\e[1;3C" forward-word
-bindkey "\e\b" backward-kill-word
-
 source ~/antigen.zsh
 
 antigen use oh-my-zsh
@@ -13,7 +7,6 @@ antigen bundle history
 antigen bundle golang
 antigen bundle git
 antigen bundle thefuck
-antigen bundle tmux
 antigen bundle asdf
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
@@ -30,18 +23,13 @@ export VISUAL=nvim
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
 eval "$(fnm env --use-on-cd)"
-# autoload -Uz vcs_info
-# precmd_vcs_info() { vcs_info }
-# precmd_functions+=( precmd_vcs_info )
-# setopt prompt_subst
-# RPROMPT=\$vcs_info_msg_0
-# zstyle ':vcs_info:git:*' formats '%F{yellow}(%b)%r%f'
-# zstyle ':vcs_info:*' enable git
-# PROMPT='%F{green}%n%f>%F{cyan}%3~%f>'
 
 # aliases
 alias zrc="$EDITOR ~/.zshrc"
 alias nvimconf="$EDITOR ~/.config/nvim/init.lua"
+alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
+alias icat="kitty +kitten icat"
+alias d="kitty +kitten diff"
 
 # functions
 mkcdir ()

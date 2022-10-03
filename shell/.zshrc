@@ -13,8 +13,6 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle jeffreytse/zsh-vi-mode
 
-antigen theme dracula/zsh dracula
-
 antigen apply
 
 export EDITOR=nvim
@@ -50,3 +48,8 @@ if [ -f '/Users/gvqz/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gvqz/googl
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gvqz/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/gvqz/google-cloud-sdk/completion.zsh.inc'; fi
 fpath+=~/.zfunc
+
+# pnpm
+export PNPM_HOME="/Users/gvqz/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

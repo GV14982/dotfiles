@@ -11,7 +11,9 @@ set.number = true
 set.wrap = false
 set.relativenumber = true
 set.termguicolors = true
-vim.cmd [[colorscheme dracula]]
+vim.g.catppuccin_flavour = "frappe"
+require('catppuccin').setup()
+vim.cmd [[colorscheme catppuccin]]
 
 require('dressing').setup({
   select = {
@@ -23,10 +25,12 @@ require('todo-comments').setup {}
 require("nvim-autopairs").setup {}
 require('colorizer').setup {}
 require('bufferline').setup {
-  clickabl = false,
-  closable = false,
-  auto_hide = true,
-  tabpages = true
+  options = {
+    clickabl = false,
+    closable = false,
+    auto_hide = true,
+    tabpages = true
+  }
 }
 local db = require('dashboard')
 db.preview_command = 'cat | lolcat -F 0.3'

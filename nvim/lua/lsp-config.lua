@@ -73,6 +73,7 @@ lspconfig.rust_analyzer.setup(lsp_opts)
 lspconfig.svelte.setup(lsp_opts)
 lspconfig.angularls.setup(lsp_opts)
 lspconfig.cssls.setup(lsp_opts)
+lspconfig.prismals.setup(lsp_opts)
 
 vim.diagnostic.config({
   virtual_text = false,

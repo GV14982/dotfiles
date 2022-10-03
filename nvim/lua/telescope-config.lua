@@ -9,7 +9,13 @@ telescope.setup {
     file_browser = {
       hijack_netrw = true,
       path = "%:p:h",
+      hidden_files = true,
     },
+  },
+  pickers = {
+    find_files = {
+      hidden = true,
+    }
   },
   defaults = {
     prompt_prefix = '  ',

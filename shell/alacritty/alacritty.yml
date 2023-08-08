@@ -1,0 +1,26 @@
+import:
+  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+
+env:
+  term: xterm-256color
+
+window:
+  padding:
+    x: 8
+    y: 4
+  opacity: 0.97
+  decorations: buttonless
+
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+  size: 16
+  offset:
+    y: 2
+    x: 1
+
+cursor:
+  style:
+    shape: Beam
+    blinking: On
+  vi_mode_style: Block

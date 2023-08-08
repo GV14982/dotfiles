@@ -1,0 +1,16 @@
+-- local null_ls = require("null-ls")
+--
+-- null_ls.setup({
+--     sources = {
+--         -- Formatters
+--         -- JS/TS/JSON/MD
+--         null_ls.builtins.formatting.prettierd,
+--         -- Go
+--         null_ls.builtins.formatting.gofmt,
+--         -- Rust
+--         null_ls.builtins.formatting.rustfmt,
+--         -- Diagnostics
+--         -- JS/TS
+--         null_ls.builtins.diagnostics.eslint_d,
+--     },
+-- })

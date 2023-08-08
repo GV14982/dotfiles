@@ -6,8 +6,6 @@ antigen bundle httpie
 antigen bundle history
 antigen bundle golang
 antigen bundle git
-antigen bundle thefuck
-antigen bundle asdf
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
@@ -17,17 +15,14 @@ antigen apply
 
 export EDITOR=nvim
 export VISUAL=nvim
-
+export GPG_TTY=$(tty)
 eval "$(starship init zsh)"
-eval "$(thefuck --alias)"
-eval "$(fnm env --use-on-cd)"
 
 # aliases
 alias zrc="$EDITOR ~/.zshrc"
 alias nvimconf="$EDITOR ~/.config/nvim/init.lua"
-alias kittyconf="$EDITOR ~/.config/kitty/kitty.conf"
-alias icat="kitty +kitten icat"
-alias d="kitty +kitten diff"
+alias alacrittyconf="$EDITOR ~/.config/alacritty/alacritty.yml"
+alias pip="pip3"
 
 # functions
 mkcdir ()
@@ -48,8 +43,12 @@ if [ -f '/Users/gvqz/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gvqz/googl
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gvqz/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/gvqz/google-cloud-sdk/completion.zsh.inc'; fi
 fpath+=~/.zfunc
+fpath+=$(brew --prefix)/share/zsh/site-functions
 
 # pnpm
 export PNPM_HOME="/Users/gvqz/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+eval "$(~/.cargo/bin/rtx activate zsh)"
+autoload -U compinit; compinit
+

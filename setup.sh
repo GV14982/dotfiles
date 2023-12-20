@@ -48,10 +48,10 @@ do
     if [[ $i =~ .*(wezterm|starship).* ]]; then
       src="$(pwd)/shell/$val"
       dest="$HOME/.config/$val"
-    elif [[ $i =~ .*(zsh|antigen|tool-versions).* ]]; then
+    elif [[ $i =~ .*(zsh).* ]]; then
       src="$(pwd)/shell/$val"
       dest="$HOME/$val"
-    elif [[ $i =~ .*(yabai|skhd).* ]]; then
+    elif [[ $i =~ .*(yabai|skhd|rtx).* ]]; then
       src="$(pwd)/util/$val"
       dest="$HOME/.config/$val"
     elif [[ $i =~ .*nvim.* ]]; then

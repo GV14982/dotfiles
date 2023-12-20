@@ -1,0 +1,10 @@
+[tools]
+node = 'latest'
+pnpm = 'latest'
+yarn = '1.22.19'
+go = 'latest'
+rust = 'latest'
+gleam = 'latest'
+opam = 'latest'
+zellij = 'latest'
+neovim = ['latest', 'nightly']

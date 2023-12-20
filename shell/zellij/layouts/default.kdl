@@ -1,15 +1,20 @@
 layout {
     pane size=1 borderless=true {
-        plugin location="zellij:tab-bar"
+        plugin location="zellij:compact-bar"
     }
-    pane split_direction="vertical" {
-        pane
-        pane {
-            pane size="70%"
-            pane size="30%"
+    pane
+    swap_tiled_layout name="3pane" {
+        tab {
+            pane size=1 borderless=true {
+                plugin location="zellij:compact-bar"
+            }
+            pane split_direction="vertical" {
+                pane
+                    pane {
+                        pane size="70%"
+                            pane size="30%"
+                    }
+            }
         }
-    }
-    pane size=2 borderless=true {
-        plugin location="zellij:status-bar"
     }
 }

@@ -1,0 +1,6 @@
+rtx
+wezterm
+nushell
+bat
+exa
+presenterm

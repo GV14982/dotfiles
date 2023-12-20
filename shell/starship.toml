@@ -17,7 +17,7 @@ disabled = true
 format = "[$symbol]($style) "
 disabled = false
 symbol = ""
-not_found_symbol = "🔍"
+
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
@@ -98,3 +98,10 @@ symbol = " "
 
 [lua]
 symbol = " "
+
+[env_var.IN_REAP_SHELL]
+format = "鷺"
+[env_var.APP_ID]
+format = "$env_value "
+[env_var.APP_ENV]
+format = "$env_value "

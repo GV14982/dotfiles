@@ -22,3 +22,5 @@ alt + shift - n : yabai -m space --focus next
 alt + shift - p : yabai -m space --focus prev
 ctrl + alt - n : yabai -m window --space next
 ctrl + alt - p : yabai -m window --space prev
+ctrl + alt + shift - n : yabai -m space --create
+

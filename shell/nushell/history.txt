@@ -1,0 +1,201 @@
+ls nushell/themes/
+ls `~/Library/Application Support/nushell/`
+nvim nushell/config.nu
+exit
+cd nushell/
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu
+exit
+use themes/catppuccin.nu
+cd nushell/
+use themes/catppuccin.nu
+main "mocha"
+use themes/catppuccin.nu main
+main "mocha"
+nvim themes/catppuccin.nu
+exit
+cd nushell/
+use themes/catppuccin.nu apply_palette
+apply_palette "mocha"
+nvim themes/catppuccin.nu
+use themes/catppuccin.nu apply_palette
+nvim themes/catppuccin.nu
+nvim config.nu
+exit
+nvim config.nu
+nvim nushell/config.nu
+nvim config.nu
+exit
+exi
+exit
+echo pwd
+echo $"(pwd)"
+exit
+cp themes/catppuccin.nu .
+nvim config.nu
+exit
+nvim config.nu
+nvim catppuccin.nu
+exit
+nvim catppuccin.nu
+exit
+nvim catppuccin.nu
+exit
+clear
+exit
+clear
+(<\n>)
+clear
+ls
+bat
+bat catppuccin.nu
+cat catppuccin.nu
+nvim env.nu
+exit
+cat catppuccin.nu
+echo $"(bat --config-dir)"
+echo $"(bat --config-dir)/syntaxes"
+cd ../../util/bat/
+ls
+mkdir syntaxes
+cd syntaxes/
+bat --list-languages | table 
+bat --list-languages
+git clone https://github.com/stevenxxiu/sublime_text_nushell
+bat --cache build
+bat cache --build
+bat --list-languages
+bat ../../../shell/nushell/config.nu
+clear
+cd ../..
+clear
+cd ..
+clear
+cd ~/
+ls
+mkdir presentation
+cd presentation/
+touch presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+mkdir -p ~/.config/presenterm/themes
+mkdir -h
+mkdir ~/.config/presenterm/themes
+clear
+mv ~/catppuccin-frappe.yaml ~/.config/presenterm/themes/
+presenterm presentation.md
+mv ~/catppuccin-frappe.yaml ~/.config/presenterm/themes/
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+clear
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+presenterm presentation.md
+nvim presentation.md
+ls
+mv ../cat.png ./
+presenterm presentation.md
+exit
+starship prompt
+chsh
+exit
+clear
+ls
+exit

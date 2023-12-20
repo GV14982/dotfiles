@@ -4,3 +4,8 @@ nushell
 bat
 exa
 presenterm
+imagemagick
+chafa
+onefetch
+macchina
+htop

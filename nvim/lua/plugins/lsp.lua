@@ -194,10 +194,6 @@ return {
           },
         },
 
-        ocamllsp = {},
-
-        -- gleam = {},
-
         html = { filetypes = { 'html', 'twig', 'hbs' } },
 
         lua_ls = {

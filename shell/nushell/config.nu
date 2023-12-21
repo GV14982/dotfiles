@@ -1,7 +1,7 @@
-use catppuccin.nu apply_palette
-let theme = apply_palette "frappe"
+# use catppuccin.nu apply_palette
+# let theme = apply_palette "frappe"
 $env.config = {
-    color_config: $theme
+    # color_config: $theme
     show_banner: false # true or false to enable or disable the welcome banner at startup
 
     ls: {

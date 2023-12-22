@@ -1,7 +1,6 @@
 export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
 # Zplug setup
-zplug "plugins/httpie", from:oh-my-zsh
 zplug "plugins/history", from:oh-my-zsh
 zplug "plugins/golang", from:oh-my-zsh
 zplug "plugins/node", from:oh-my-zsh
@@ -10,7 +9,6 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/ripgrep", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/cp", from:oh-my-zsh
-zplug "plugins/emoji", from:oh-my-zsh
 zplug "plugins/fzf", from:oh-my-zsh
 zplug "plugins/jump", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", as:plugin, defer:2

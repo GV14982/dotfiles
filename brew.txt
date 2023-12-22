@@ -15,3 +15,5 @@ git-delta
 zplug
 starship
 gpg
+ripgrep
+fd

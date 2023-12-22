@@ -64,7 +64,7 @@ do
     val="${match:1: len - 1}"
   fi
   if [[ $exists == "" ]]; then
-    if [[ $i =~ .*(wezterm|starship).* ]]; then
+    if [[ $i =~ .*(wezterm|starship|zellij).* ]]; then
       src="$(pwd)/shell/$val"
       dest="$HOME/.config/$val"
     elif [[ $i =~ .*(zsh).* ]]; then

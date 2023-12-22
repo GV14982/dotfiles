@@ -1,4 +1,4 @@
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
+export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
 # Zplug setup
 zplug "plugins/httpie", from:oh-my-zsh

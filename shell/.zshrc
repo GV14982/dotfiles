@@ -65,3 +65,6 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/go/bin"
 
 # Setup rtx
 eval "$(rtx activate zsh)"
+
+# Set brew to use bat
+export HOMEBREW_BAT=true

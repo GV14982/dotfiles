@@ -1,5 +1,4 @@
 rtx
-wezterm
 nushell
 bat
 exa
@@ -10,3 +9,9 @@ onefetch
 macchina
 htop
 gh
+fzf
+jq
+git-delta
+zplug
+starship
+gpg

@@ -18,14 +18,33 @@ function checkFileLinkDir() {
 }
 
 if [ $brewInstalled = false ]; then
+  echo "Installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 IFS=$'\n'
 set -f
+brew_list="$(brew list)"
 for i in $(cat brew.txt); do
-  brew install "$i"
+  if [[ $brew_list =~ $i ]]; then
+    echo "Package already installed: $i"
+  else
+    echo "Installing package: $i"
+    brew install "$i"
+  fi
 done
+
+if [[ ! $brew_list =~ "yabai" ]]; then
+  brew install koekeishiya/formulae/yabai
+fi
+
+if [[ ! $brew_list =~ "skhd" ]]; then
+  brew install koekeishiya/formulae/skhd
+fi
+
+if [[ ! $brew_list =~ "wezterm" ]]; then
+  brew install --cask wezterm
+fi
 
 if [[ $1 == "clean" ]]; then
   echo "Removing existing files/folders/links"
@@ -63,7 +82,14 @@ do
     fi
     ln -s $src $dest
     echo "Linked $src to $dest"
+  else
+    echo "$i already linked"
   fi
 done
 
+echo "Install rtx plugins/runtimes"
 rtx install
+
+echo "Install zplugins"
+source ~/.zhsrc
+zplug install

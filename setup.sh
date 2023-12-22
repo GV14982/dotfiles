@@ -91,5 +91,5 @@ echo "Install rtx plugins/runtimes"
 rtx install
 
 echo "Install zplugins"
-source ~/.zhsrc
+source ~/.zshrc
 zplug install

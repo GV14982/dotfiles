@@ -153,20 +153,15 @@ return {
       --  If you want to override the default filetypes that your language server will attach to you can
       --  define the property 'filetypes' to the map in question.
       local servers = {
-        gopls = {
-          gopls = {
-            hints = {
-              assignVariableTypes = true,
-              compositeLiteralFields = true,
-              compositeLiteralTypes = true,
-              constantValues = true,
-              functionTypeParameters = true,
-              parameterNames = true,
-              rangeVariableTypes = true,
-            }
-          }
-        },
-        rust_analyzer = {},
+        -- Web
+        html = {},
+        cssls = {},
+        cssmodules_ls = {},
+        htmx = {},
+        tailwindcss = {},
+        angularls = {},
+        emmet_language_server = {},
+        graphql = {},
         tsserver = {
           typescript = {
             inlayHints = {
@@ -193,9 +188,7 @@ return {
             }
           },
         },
-
-        html = { filetypes = { 'html', 'twig', 'hbs' } },
-
+        -- Config
         lua_ls = {
           Lua = {
             workspace = { checkThirdParty = false },
@@ -205,6 +198,32 @@ return {
             }
           },
         },
+        dockerls = {},
+        docker_compose_language_service = {},
+        jsonls = {},
+        taplo = {},
+        yamlls = {},
+        -- System
+        gopls = {
+          gopls = {
+            hints = {
+              assignVariableTypes = true,
+              compositeLiteralFields = true,
+              compositeLiteralTypes = true,
+              constantValues = true,
+              functionTypeParameters = true,
+              parameterNames = true,
+              rangeVariableTypes = true,
+            }
+          }
+        },
+        rust_analyzer = {},
+        -- Other
+        templ = {},
+        bashls = {},
+        eslint = {},
+        marksman = {},
+        lemminx = {},
       }
 
       local serverNames = {}

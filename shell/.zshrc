@@ -1,23 +1,16 @@
 export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
 # Zplug setup
-zplug "plugins/history", from:oh-my-zsh
-zplug "plugins/golang", from:oh-my-zsh
-zplug "plugins/node", from:oh-my-zsh
-zplug "plugins/yarn", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/ripgrep", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh
-zplug "plugins/cp", from:oh-my-zsh
-zplug "plugins/fzf", from:oh-my-zsh
-zplug "plugins/jump", from:oh-my-zsh
-zplug "zsh-users/zsh-syntax-highlighting", as:plugin, defer:2
-zplug "zsh-users/zsh-autosuggestions", as:plugin, defer:2
-zplug "zsh-users/zsh-completions", as:plugin, defer:2
-zplug "jeffreytse/zsh-vi-mode", as:plugin
-zplug "fdellwing/zsh-bat", as:plugin
-zplug "MohamedElashri/exa-zsh", as:plugin, hook-load:"alias ls='exa --icons'"
-zplug "torifat/npms", as:plugin
+zplug "plugins/gh", from:oh-my-zsh
+zplug "plugins/zoxide", from:oh-my-zsh
+zplug "marlonrichert/zsh-autocomplete"
+zplug "jeffreytse/zsh-vi-mode"
+zplug "fdellwing/zsh-bat"
+zplug "torifat/npms"
+zplug "MohamedElashri/exa-zsh", hook-load:"alias ls='exa --icons'"
+zplug "zdharma-continuum/fast-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-completions", defer:2
 
 zplug load
 
@@ -39,6 +32,8 @@ alias wezconf="$EDITOR ~/.config/wezterm/init.lua"
 alias nuconf="$EDITOR ~/Library/Application\ Support/nushell/config.nu"
 alias pip="pip3"
 alias python="python3"
+alias cd="z"
+alias j="joshuto"
 
 # functions
 mkcdir ()
@@ -66,3 +61,9 @@ eval "$(rtx activate zsh)"
 
 # Set brew to use bat
 export HOMEBREW_BAT=true
+
+# Setup zsh-autocompletion
+zstyle ':autocomplete:*' delay 0.1  # seconds (float)
+zstyle ':autocomplete:*' ignored-input '..##'
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete

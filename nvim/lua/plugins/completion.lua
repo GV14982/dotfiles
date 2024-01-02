@@ -18,10 +18,29 @@ return {
       -- [[ Configure nvim-cmp ]]
       -- See `:help cmp`
       local cmp = require 'cmp'
-      local luasnip = require 'luasnip'
+      local ls = require 'luasnip'
       require('luasnip.loaders.from_vscode').lazy_load()
       require('luasnip.loaders.from_snipmate').lazy_load()
-      luasnip.config.setup {}
+      ls.filetype_extend("templ", { "go" })
+      ls.filetype_extend("typescript", { "tsdoc" })
+      ls.filetype_extend("javascript", { "jsdoc" })
+      ls.filetype_extend("lua", { "luadoc" })
+      ls.add_snippets("templ", {
+        ls.s("templ",
+          {
+            ls.t("templ "),
+            ls.i(1, "name"),
+            ls.t("("),
+            ls.i(2, "args"),
+            ls.t(")"),
+            ls.t({ "{", "\t" }),
+            ls.i(3, "body"),
+            ls.t({ "", "}" }),
+          })
+      })
+      ls.setup({
+        updateevents = "TextChanged,TextChangedI",
+      })
 
       -- Check if there are any words before your current position on a line
       local has_words_before = function()
@@ -34,13 +53,13 @@ return {
       local handle_cmp_tab = function(keys)
         -- Actual mapping handler function
         return function(fallback)
-          vim.notify(tostring(luasnip.expand_or_locally_jumpable()), 0, nil)
-          if keys == "<Tab>" and luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
+          vim.notify(tostring(ls.expand_or_locally_jumpable()), 0, nil)
+          if keys == "<Tab>" and ls.expand_or_locally_jumpable() then
+            ls.expand_or_jump()
           elseif keys == "<Tab>" and cmp.visible() then
             cmp.select_next_item()
-          elseif keys == "<S-Tab>" and luasnip.expand_or_locally_jumpable(-1) then
-            luasnip.expand_or_jump(-1)
+          elseif keys == "<S-Tab>" and ls.expand_or_locally_jumpable(-1) then
+            ls.expand_or_jump(-1)
           elseif keys == "<S-Tab>" and cmp.visible() then
             cmp.select_prev_item()
           elseif has_words_before() then
@@ -54,7 +73,7 @@ return {
       cmp.setup {
         snippet = {
           expand = function(args)
-            luasnip.lsp_expand(args.body)
+            ls.lsp_expand(args.body)
           end,
         },
         completion = {

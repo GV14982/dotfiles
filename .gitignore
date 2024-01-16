@@ -1,2 +1,2 @@
 .DS_Store
-shell/nushell/history.txt
+*.re.*

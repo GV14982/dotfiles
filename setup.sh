@@ -114,3 +114,10 @@ git config --global delta.navigate true
 git config --global delta.line-numbers true
 git config --global delta.hyperlinks true
 git config --global delta.syntax-theme "Catppuccin-frappe"
+
+if [[ $(uname) =~ .*x86_64.* ]]; then
+  echo "Symlink brew bin and fish if of x86"
+  mkdir -p /opt/homebrew/bin
+  ln -s /usr/local/bin/fish /opt/homebrew/bin/fish
+  ln -s /usr/local/bin/brew /opt/homebrew/bin/brew
+fi

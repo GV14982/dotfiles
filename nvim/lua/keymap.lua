@@ -1,5 +1,6 @@
 local builtin = require('telescope.builtin')
 local trouble = require("trouble")
+local toggleterm = require("toggleterm")
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -98,3 +99,5 @@ vim.keymap.set("n", "<leader>td", function() trouble.toggle("document_diagnostic
   { desc = 'Toggle [D]ocument Diagnostics' })
 vim.keymap.set("n", "<leader>tq", function() trouble.toggle("quickfix") end, { desc = 'Toggle [Q]uickFix' })
 vim.keymap.set("n", "<leader>tl", function() trouble.toggle("loclist") end, { desc = 'Toggle [L]ocList' })
+vim.keymap.set({ "n", "t" }, "<c-a>", function() toggleterm.toggle(nil, nil, nil, "float", "terminal") end,
+  { desc = '[T]oggle Term' })

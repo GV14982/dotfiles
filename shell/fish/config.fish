@@ -10,7 +10,6 @@ if status is-interactive
     abbr -a fishconf "$EDITOR ~/.config/fish/config.fish"
     abbr -a nvimconf "$EDITOR ~/.config/nvim/init.lua"
     abbr -a wezconf "$EDITOR ~/.config/wezterm/wezterm.lua"
-    abbr -a tmuxconf "$EDITOR ~/.config/tmux/tmux.conf"
     abbr -a pip "pip3"
     abbr -a python "python3"
     abbr -a ls "lsd"

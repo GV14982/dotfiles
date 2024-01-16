@@ -1,6 +1,18 @@
 #!/bin/sh
 
-files=("$HOME/.config/wezterm" "$HOME/.config/nvim" "$HOME/.config/yabai" "$HOME/.config/skhd" "$HOME/.zshrc" "$HOME/.config/starship.toml" "$HOME/.config/zellij" "$HOME/.config/rtx" "$HOME/Library/Application Support/nushell")
+files=(
+  "$HOME/.config/wezterm"
+  "$HOME/.config/nvim"
+  "$HOME/.config/yabai"
+  "$HOME/.config/skhd"
+  "$HOME/.config/fish"
+  "$HOME/.config/starship.toml"
+  "$HOME/.config/mise"
+  "$HOME/.config/bottom"
+  "$HOME/.config/tmux"
+  "$HOME/.config/xplr"
+  "$HOME/.config/bat"
+)
 exists=""
 
 command -v brew &> /dev/null && brewInstalled=true || brewInstalled=false
@@ -25,26 +37,28 @@ fi
 IFS=$'\n'
 set -f
 brew_list="$(brew list)"
+for i in $(cat tap.txt); do
+  echo "Brew tapping $i"
+  brew tap "$i"
+done
+
 for i in $(cat brew.txt); do
   if [[ $brew_list =~ $i ]]; then
     echo "Package already installed: $i"
   else
     echo "Installing package: $i"
-    brew install "$i"
+    brew install $i
   fi
 done
 
-if [[ ! $brew_list =~ "yabai" ]]; then
-  brew install koekeishiya/formulae/yabai
-fi
-
-if [[ ! $brew_list =~ "skhd" ]]; then
-  brew install koekeishiya/formulae/skhd
-fi
-
-if [[ ! $brew_list =~ "wezterm" ]]; then
-  brew install --cask wezterm
-fi
+for i in $(cat cask.txt); do
+  if [[ $brew_list =~ $i ]]; then
+    echo "Cask already installed: $i"
+  else
+    echo "Installing cask: $i"
+    brew install --cask $i
+  fi
+done
 
 if [[ $1 == "clean" ]]; then
   echo "Removing existing files/folders/links"
@@ -64,21 +78,15 @@ do
     val="${match:1: len - 1}"
   fi
   if [[ $exists == "" ]]; then
-    if [[ $i =~ .*(wezterm|starship|zellij).* ]]; then
+    if [[ $i =~ .*(wezterm|starship|fish|tmux).* ]]; then
       src="$(pwd)/shell/$val"
       dest="$HOME/.config/$val"
-    elif [[ $i =~ .*(zsh).* ]]; then
-      src="$(pwd)/shell/$val"
-      dest="$HOME/$val"
-    elif [[ $i =~ .*(yabai|skhd|rtx).* ]]; then
+    elif [[ $i =~ .*(yabai|skhd|mise|bottom|xplr|bat).* ]]; then
       src="$(pwd)/util/$val"
       dest="$HOME/.config/$val"
     elif [[ $i =~ .*nvim.* ]]; then
       src="$(pwd)/$val"
       dest="$HOME/.config/$val"
-    elif [[ $i =~ .*(nushell).* ]]; then
-      src="$(pwd)/shell/$val"
-      dest="$HOME/Library/Application Support/"
     fi
     ln -s $src $dest
     echo "Linked $src to $dest"
@@ -87,8 +95,8 @@ do
   fi
 done
 
-echo "Install rtx plugins/runtimes"
-rtx install
+echo "Install mise plugins/runtimes"
+mise install
 
 echo "Setting up delta as git pager"
 git config --global core.pager delta
@@ -98,3 +106,4 @@ git config --global interactive.diffFilter "delta --color-only --features=intera
 git config --global delta.navigate true
 git config --global delta.line-numbers true
 git config --global delta.hyperlinks true
+git config --global delta.syntax-theme "Catppuccin-frappe"

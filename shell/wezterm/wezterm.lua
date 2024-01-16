@@ -1,5 +1,5 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require "wezterm"
 local action = wezterm.action
 -- This table will hold the configuration.
 local config = {}
@@ -12,13 +12,13 @@ end
 
 -- This is where you actually apply your config choices
 
--- config.default_prog = { "nu" }
+config.set_environment_variables = {
+  SHELL = "/opt/homebrew/bin/fish"
+}
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Catppuccin Frappe'
+config.color_scheme = "Catppuccin Frappe"
 
-config.window_background_opacity = 0.9
-config.macos_window_background_blur = 50
 config.window_padding = {
   left = 8,
   right = 8,
@@ -33,6 +33,7 @@ config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
 config.tab_max_width = 9999
 config.window_decorations = "RESIZE"
+config.adjust_window_size_when_changing_font_size = false
 
 -- Setup font
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold" })
@@ -57,7 +58,67 @@ config.keys = {
     key = "v",
     mods = "CMD",
     action = action.PasteFrom "Clipboard"
-  }
+  },
+  {
+    key = "+",
+    mods = "CMD",
+    action = action.IncreaseFontSize
+  },
+  {
+    key = "-",
+    mods = "CMD",
+    action = action.DecreaseFontSize
+  },
+  {
+    key = "|",
+    mods = "LEADER",
+    action = action.SplitHorizontal { domain = "CurrentPaneDomain" }
+  },
+  {
+    key = "_",
+    mods = "LEADER",
+    action = action.SplitVertical { domain = "CurrentPaneDomain" }
+  },
+  {
+    key = "t",
+    mods = "LEADER",
+    action = action.SpawnTab "CurrentPaneDomain"
+  },
+  {
+    key = "p",
+    mods = "LEADER",
+    action = action.SpawnWindow
+  },
+  {
+    key = "c",
+    mods = "LEADER",
+    action = action.CloseCurrentPane { confirm = false }
+  },
+  {
+    key = "x",
+    mods = "LEADER",
+    action = action.CloseCurrentTab { confirm = false }
+  },
+  {
+    key = "h",
+    mods = "LEADER",
+    action = action.ActivatePaneDirection "Left",
+  },
+  {
+    key = "j",
+    mods = "LEADER",
+    action = action.ActivatePaneDirection "Down",
+  },
+  {
+    key = "k",
+    mods = "LEADER",
+    action = action.ActivatePaneDirection "Up",
+  },
+  {
+    key = "l",
+    mods = "LEADER",
+    action = action.ActivatePaneDirection "Right",
+  },
 }
 
 -- and finally, return the configuration to wezterm

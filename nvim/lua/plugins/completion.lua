@@ -13,6 +13,14 @@ return {
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
+
+      -- Adds git support
+      {
+        'petertriho/cmp-git',
+        dependencies = {
+          'nvim-lua/plenary.nvim'
+        }
+      }
     },
     config = function()
       -- [[ Configure nvim-cmp ]]
@@ -95,8 +103,11 @@ return {
         sources = {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
+          { name = 'git' },
         },
       }
+
+      require('cmp_git').setup();
     end
   },
 }

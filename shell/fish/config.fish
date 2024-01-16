@@ -1,6 +1,10 @@
-eval (/opt/homebrew/bin/brew shellenv)
 
 if status is-interactive
+    if string match -q "x86" (uname -a)
+        eval (/usr/local/bin/brew shellenv)
+    else
+        eval (/opt/homebrew/bin/brew shellenv)
+    end
     # ALIASES
     abbr -a fexec "exec fish"
     abbr -a fishconf "$EDITOR ~/.config/fish/config.fish"

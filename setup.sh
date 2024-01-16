@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# List of config files to symlink
 files=(
   "$HOME/.config/wezterm"
   "$HOME/.config/nvim"
@@ -9,14 +10,15 @@ files=(
   "$HOME/.config/starship.toml"
   "$HOME/.config/mise"
   "$HOME/.config/bottom"
-  "$HOME/.config/tmux"
   "$HOME/.config/xplr"
   "$HOME/.config/bat"
 )
 exists=""
 
+# Check if Homebrew is installed
 command -v brew &> /dev/null && brewInstalled=true || brewInstalled=false
 
+# Helper function that checks the type of a fs entry
 function checkFileLinkDir() {
   if [ -d "$1" ]; then
     exists="folder"
@@ -29,11 +31,13 @@ function checkFileLinkDir() {
   fi
 }
 
+# If Homebrew is not installed, install it!
 if [ $brewInstalled = false ]; then
   echo "Installing Homebrew"
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+# Installing brew packages/casks/taps
 IFS=$'\n'
 set -f
 brew_list="$(brew list)"
@@ -60,6 +64,7 @@ for i in $(cat cask.txt); do
   fi
 done
 
+# If clean subcommand is passed then clear out existing symlinks
 if [[ $1 == "clean" ]]; then
   echo "Removing existing files/folders/links"
   for i in "${files[@]}"; do
@@ -78,7 +83,7 @@ do
     val="${match:1: len - 1}"
   fi
   if [[ $exists == "" ]]; then
-    if [[ $i =~ .*(wezterm|starship|fish|tmux).* ]]; then
+    if [[ $i =~ .*(wezterm|starship|fish).* ]]; then
       src="$(pwd)/shell/$val"
       dest="$HOME/.config/$val"
     elif [[ $i =~ .*(yabai|skhd|mise|bottom|xplr|bat).* ]]; then
@@ -95,9 +100,11 @@ do
   fi
 done
 
+# Setup programs managed by mise
 echo "Install mise plugins/runtimes"
 mise install
 
+# Setting some global git configs to use delta as a pager
 echo "Setting up delta as git pager"
 git config --global core.pager delta
 git config --global pager.blame delta

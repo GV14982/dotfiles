@@ -99,6 +99,7 @@ symbol = " "
 [lua]
 symbol = " "
 
+# This is something from work, so it probably means nothing to you lol
 [env_var.IN_REAP_SHELL]
 format = "鷺"
 [env_var.APP_ID]

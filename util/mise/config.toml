@@ -1,10 +1,8 @@
+# These are my base versions for tools that I use regularly
 [tools]
 node = 'latest'
 pnpm = 'latest'
 yarn = '1.22.19'
 go = 'latest'
 rust = 'latest'
-gleam = 'latest'
-opam = 'latest'
-zellij = 'latest'
 neovim = ['latest', 'nightly']

@@ -13,9 +13,9 @@ if status is-interactive
     abbr -a tmuxconf "$EDITOR ~/.config/tmux/tmux.conf"
     abbr -a pip "pip3"
     abbr -a python "python3"
-    abbr -a ls 'lsd'
-    abbr -a la 'lsd -a'
-    abbr -a cat 'bat'
+    abbr -a ls "lsd"
+    abbr -a la "lsd -a"
+    abbr -a cat "bat"
 
     bind --preset -e -a \cl
     bind --preset -e -a \ca

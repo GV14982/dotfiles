@@ -116,9 +116,9 @@ git config --global delta.hyperlinks true
 git config --global delta.syntax-theme "Catppuccin-frappe"
 
 if [[ $(uname -a) =~ .*x86_64.* ]]; then
-  echo "Symlink fish if of x86"
+  echo "Symlink fish if x86"
   mkdir -p /opt/homebrew/bin
   ln -s /usr/local/bin/fish /opt/homebrew/bin/fish
 else
-  echo "Skipping symlinking brew and fish stuff"
+  echo "Skipping symlinking fish"
 fi

@@ -1,6 +1,6 @@
 
 if status is-interactive
-    if string match -q "x86" (uname -a)
+    if string match -q "*x86*" (uname -a)
         eval (/usr/local/bin/brew shellenv)
     else
         eval (/opt/homebrew/bin/brew shellenv)

@@ -1,2 +1,4 @@
-wezterm
 font-hack-nerd-font
+karabiner-elements
+raycast
+wezterm

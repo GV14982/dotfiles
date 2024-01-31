@@ -1,0 +1,108 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[package]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[aws]
+disabled = true
+
+[status]
+format = "[$symbol]($style) "
+disabled = false
+symbol = ""
+
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+ahead = "[⇡$count](bright-green)"
+behind = "[⇣$count](bright-yellow)"
+conflicted = "✘(bright-red)"
+stashed = '[*$count](yellow)'
+staged = '[+$count](green)'
+untracked = '[?$count](blue)'
+modified = '[!$count](purple)'
+renamed = '[»$count](orange)'
+deleted = '[-$count](red)'
+style = "white bold"
+up_to_date = "[✓](green)"
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[python]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
+
+[rust]
+symbol = " "
+
+[lua]
+symbol = " "
+
+# This is something from work, so it probably means nothing to you lol
+[env_var.IN_REAP_SHELL]
+format = " "
+[env_var.APP_ID]
+format = "$env_value "
+[env_var.APP_ENV]
+format = "$env_value "

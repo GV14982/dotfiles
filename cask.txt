@@ -1,1 +1,2 @@
 wezterm
+font-hack-nerd-font

@@ -22,8 +22,10 @@ mise
 onefetch
 presenterm
 ripgrep
+sketchybar
 skhd
 starship
+stow
 xplr
 yabai
 yq

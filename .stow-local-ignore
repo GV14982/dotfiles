@@ -1,5 +1,7 @@
-\.git
-\.gitignore
-brew\.txt
-tap\.txt
-cask\.txt
+.git
+.gitignore
+gh
+scripts
+brew
+^/README.*
+^/LICENSE.*

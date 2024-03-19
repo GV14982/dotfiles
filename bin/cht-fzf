@@ -1,0 +1,32 @@
+#!/bin/bash
+
+cht_list() {
+  echo $(curl cht.sh$1/:list 2> /dev/null)
+}
+
+cht() {
+  curl cht.sh$1
+}
+
+sedzf() {
+  echo $1 | sed 's/ /\n/g' | fzf
+}
+
+if [[ $1 != "" ]]; then
+  cht "/$1"
+else
+  cht_val=$(cht_list "")
+  input=""
+  while [[ $cht_val != "" ]]; do
+    selection=$(sedzf "$cht_val _")
+    if [[ $selection == "_" || $selection == "" ]]; then
+      break
+    else
+      input="$input/$selection"
+    fi
+    cht_val="$(cht_list $input)"
+  done
+  if [[ $selection != "" ]]; then
+    cht $input
+  fi
+fi

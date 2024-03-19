@@ -1,0 +1,3 @@
+font-hack-nerd-font
+raycast
+wezterm

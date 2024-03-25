@@ -1,3 +1,4 @@
 font-hack-nerd-font
+keycastr
 raycast
 wezterm

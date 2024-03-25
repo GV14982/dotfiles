@@ -2,6 +2,7 @@ bat
 bottom
 chafa
 colima
+deskpad
 docker
 docker-compose
 docker-credential-helper

@@ -49,6 +49,47 @@ return {
             ls.t({ "", "}" }),
           })
       })
+      ls.add_snippets("presenterm", {
+        ls.s("title", {
+          ls.i(1, "title"),
+          ls.t({ "", "---" })
+        }),
+        ls.s("pause", {
+          ls.t("<!--pause-->")
+        }),
+        ls.s("end_slide", {
+          ls.t("<!--end_slide-->")
+        }),
+        ls.s("column_layout", {
+          ls.t("<!--column_layout: ["),
+          ls.i(1, "layout"),
+          ls.t("]-->"),
+        }),
+        ls.s("column", {
+          ls.t("<!--column: "),
+          ls.i(1, "0"),
+          ls.t("-->"),
+        }),
+        ls.s("reset_layout", {
+          ls.t("<!--reset_layout-->")
+        }),
+        ls.s("new_line", {
+          ls.t("<!--new_line-->")
+        }),
+        ls.s("new_lines", {
+          ls.t("<!--new_lines: "),
+          ls.i(1, "1"),
+          ls.t("-->"),
+        }),
+        ls.s("jump_to_middle", {
+          ls.t("<!--jump_to_middle-->")
+        }),
+        ls.s("incremental_list", {
+          ls.t("<!--incremental_lists: "),
+          ls.i(1, "true"),
+          ls.t("-->"),
+        }),
+      })
       ls.setup({
         updateevents = "TextChanged,TextChangedI",
       })

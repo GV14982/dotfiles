@@ -4,6 +4,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      'windwp/nvim-ts-autotag'
     },
     build = ':TSUpdate',
     config = function()
@@ -70,6 +71,9 @@ return {
               scope_incremental = '<c-s>',
               node_decremental = '<M-space>',
             },
+          },
+          autotag = {
+            enable = true
           },
           textobjects = {
             select = {

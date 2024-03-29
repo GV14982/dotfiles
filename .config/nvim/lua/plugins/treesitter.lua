@@ -4,7 +4,16 @@ return {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
-      'windwp/nvim-ts-autotag'
+      'windwp/nvim-ts-autotag',
+      {
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        opts = {
+          languages = {
+            gleam = "// %s",
+          }
+        }
+      }
+
     },
     build = ':TSUpdate',
     config = function()

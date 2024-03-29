@@ -36,7 +36,7 @@ config.tab_max_width = 9999
 config.window_decorations = "RESIZE"
 
 -- Setup font
-config.font = wezterm.font("Hack Nerd Font", { weight = "DemiBold" })
+config.font = wezterm.font("FiraCode Nerd Font", { weight = "DemiBold" })
 config.font_size = 16
 config.adjust_window_size_when_changing_font_size = false
 

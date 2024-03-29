@@ -268,7 +268,7 @@ return {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {},
-        filetypes = {}
+        filetypes = { "gleam" }
       }
     end,
   },

@@ -1,4 +1,4 @@
-font-hack-nerd-font
+font-fira-code-nerd-font
 keycastr
 raycast
 wezterm

@@ -1,4 +1,0 @@
-opts: c= a=, cmd: , arg: swap stack
-opts: c= a=, cmd: , arg: swap stack
-opts: c= a=, cmd: , arg: swap stack
-opts: c= a=, cmd: , arg: swap stack

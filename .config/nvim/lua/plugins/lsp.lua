@@ -267,8 +267,10 @@ return {
       require('lspconfig').gleam.setup {
         capabilities = capabilities,
         on_attach = on_attach,
-        settings = {},
-        filetypes = { "gleam" }
+        -- Uncomment this to use the glas LSP
+        -- cmd = { "glas", "--stdio" },
+        filetypes = { "gleam" },
+        single_file_support = true
       }
     end,
   },

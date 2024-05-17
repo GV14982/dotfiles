@@ -1,6 +1,18 @@
 #! /bin/bash
 
 setup_left() {
+	sketchybar --add event skhd_mode_changed
+
+	# This is an empty item I use to show which-key hints
+	sketchybar --add item leftmost.left left \
+		   --set leftmost.left script="$PLUGIN_DIR/which_key.sh" \
+		   width=0 \
+		   popup.background.drawing=true \
+		   popup.background.corner_radius=10 \
+		   popup.background.color="0xbb$BASE"\
+		   popup.blur_radius=10\
+		   --subscribe leftmost.left skhd_mode_changed
+
 	source ./items/left/spaces.sh
 	setup_spaces
 	##### Adding Left Items #####
@@ -11,8 +23,6 @@ setup_left() {
 		   --set front_app.left script="$PLUGIN_DIR/front_app.sh" \
 		   icon= \
 		   --subscribe front_app.left front_app_switched
-
-	sketchybar --add event skhd_mode_changed
 
 	sketchybar --add item skhd_mode.left left \
 		   --set skhd_mode.left script="$PLUGIN_DIR/skhd_mode.sh" \

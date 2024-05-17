@@ -27,7 +27,7 @@ sketchybar
 skhd
 starship
 stow
-xplr
+superfile
 yabai
 yq
 zoxide

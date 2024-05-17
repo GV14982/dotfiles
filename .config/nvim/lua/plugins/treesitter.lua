@@ -1,3 +1,8 @@
+vim.filetype.add({
+  extension = {
+    mdx = "mdx"
+  }
+})
 return {
   {
     -- Highlight, edit, and navigate code
@@ -21,6 +26,7 @@ return {
       -- See `:help nvim-treesitter`
       -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
       vim.defer_fn(function()
+        require("nvim-treesitter.parsers").filetype_to_parsername.mdx = "markdown"
         vim.opt.foldmethod = "expr"
         vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
         vim.opt.foldenable = true

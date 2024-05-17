@@ -37,6 +37,7 @@ yabai -m rule --add app="^Install" manage=off layer=normal
 yabai -m rule --add app="^Little Arc" manage=off layer=normal
 yabai -m rule --add app="^1Password" manage=off layer=normal
 yabai -m rule --add app="^Microsoft Teams" manage=off layer=normal
+yabai -m rule --add app="OBS Studio" manage=off layer=normal
 yabai -m rule --add app="Raycast" manage=off layer=normal
 yabai -m rule --add app="DeskPad" manage=off layer=normal
 yabai -m rule --add app="KeyCastr" manage=off layer=normal

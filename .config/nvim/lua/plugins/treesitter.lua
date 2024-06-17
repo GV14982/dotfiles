@@ -88,7 +88,8 @@ return {
             },
           },
           autotag = {
-            enable = true
+            enable = true,
+            enable_rename = true,
           },
           textobjects = {
             select = {

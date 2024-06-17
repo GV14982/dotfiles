@@ -1,4 +1,5 @@
 return {
   'tpope/vim-sleuth',
-  'akinsho/toggleterm.nvim'
+  'akinsho/toggleterm.nvim',
+  'norcalli/nvim-colorizer.lua'
 }

@@ -63,7 +63,7 @@ return {
           end
 
           -- Tsserver usually works poorly. Ideally this should be handled by prettier
-          if client.name == 'tsserver' then
+          if client.name == 'tsserver' or client.name == 'html' or client.name == 'jsonls' or client.name == 'cssls' then
             return
           end
 

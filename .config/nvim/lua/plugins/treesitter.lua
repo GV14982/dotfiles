@@ -1,6 +1,10 @@
 vim.filetype.add({
   extension = {
     mdx = "mdx"
+  },
+  filename = {
+    skhdrc = "skhdrc",
+    yabairc = "yabairc"
   }
 })
 return {
@@ -26,7 +30,9 @@ return {
       -- See `:help nvim-treesitter`
       -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
       vim.defer_fn(function()
-        require("nvim-treesitter.parsers").filetype_to_parsername.mdx = "markdown"
+        vim.treesitter.language.register("markdown", "mdx")
+        vim.treesitter.language.register("bash", "skhdrc")
+        vim.treesitter.language.register("bash", "yabairc")
         vim.opt.foldmethod = "expr"
         vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
         vim.opt.foldenable = true
@@ -71,6 +77,7 @@ return {
             'markdown_inline',
             'gitcommit',
             'xml',
+            'bash'
           },
 
           -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)

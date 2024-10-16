@@ -1,3 +1,4 @@
+PATH="$PATH:/opt/homebrew/bin"
 setup_spaces() {
 	##### Adding Mission Control Space Indicators #####
 	# Now we add some mission control spaces:
@@ -27,7 +28,6 @@ setup_spaces() {
 		rand_idx=$(($(($random + $i)) % ${#space_colors[@]}))
 		color=$(echo ${space_colors[$rand_idx]} | sed 's/,//g')
 		sid=$(($i + 1))
-		echo "which aerospace"
 		window_count=$(aerospace list-windows --workspace $sid --format "%{workspace}" | jq -rs "length")
 		name="space.$sid.left"
 		icon=$sid

@@ -168,7 +168,7 @@
 		};
 	in
 	{
-		darwinConfigurations."graham-macbook" = nix-darwin.lib.darwinSystem {
+		darwinConfigurations."macbook" = nix-darwin.lib.darwinSystem {
 			modules = [
 				configuration
 				nix-homebrew.darwinModules.nix-homebrew
@@ -205,6 +205,6 @@
 			];
 		};
 
-		darwinPackages = self.darwinConfigurations"graham-macbook".pkgs;
+		darwinPackages = self.darwinConfigurations"macbook".pkgs;
 	};
 }

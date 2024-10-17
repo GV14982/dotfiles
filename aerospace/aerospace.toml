@@ -48,9 +48,8 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 exec-on-workspace-change = [
 	'/bin/bash',
 	'-c',
-	'/run/current-system/sw/bin/sketchybar --trigger aerospace_workspace_changed FOCUSED=$AEROSPACE_FOCUSED_WORKSPACE',
+	'sketchybar --trigger aerospace_workspace_changed FOCUSED=$AEROSPACE_FOCUSED_WORKSPACE',
 ]
-
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8

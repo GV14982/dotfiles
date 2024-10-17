@@ -1,4 +1,3 @@
-PATH="$PATH:/opt/homebrew/bin"
 setup_spaces() {
 	##### Adding Mission Control Space Indicators #####
 	# Now we add some mission control spaces:

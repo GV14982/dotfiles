@@ -1,5 +1,3 @@
-PATH="$PATH:/opt/homebrew/bin"
-
 update_bg() {
   if [[ "$NAME" == "space.$FOCUSED.left" ]]; then
     sketchybar --set $NAME background.drawing=on

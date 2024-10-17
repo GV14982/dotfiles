@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Install Nix
-curl -L https://nixos.org/nix/install | sh
+# Setup Homebrew
+./scripts/brew.sh
 
 # Setup Github CLI
 ./scripts/gh.sh

@@ -30,6 +30,8 @@ if status is-interactive
     bind -M insert \cl forward-word
     bind -M insert \ca accept-autosuggestion
 
+    eval (/opt/homebrew/bin/brew shellenv fish)
+
     # Set GPG_TTY to fix broken commit signing: https://github.com/fish-shell/fish-shell/issues/6643
     set -gx GPG_TTY (tty)
 

@@ -1,5 +1,6 @@
 aerc
 bat
+borders
 bottom
 chafa
 colima

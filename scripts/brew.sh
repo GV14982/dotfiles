@@ -26,8 +26,8 @@ for i in $(cat brew/tap.txt); do
   brew tap "$i"
 done
 
-# Install brew packages
-for i in $(cat brew/package.txt); do
+# Install brew formulae
+for i in $(cat brew/formulae.txt); do
   if [[ $brew_list =~ $i ]]; then
     echo "Package already installed: $i"
   else

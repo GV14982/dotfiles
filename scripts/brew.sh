@@ -10,6 +10,9 @@ if [ $brewInstalled = false ]; then
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+echo "$(/opt/homebrew/bin/brew shellenv zsh)" >> ~/.zprofile
+
 # Set our word separator to only newline
 IFS=$'\n'
 set -f

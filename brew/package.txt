@@ -1,3 +1,4 @@
+aerc
 bat
 bottom
 chafa
@@ -7,6 +8,7 @@ docker
 docker-compose
 docker-credential-helper
 fd
+figlet
 fish
 fisher
 fzf
@@ -20,14 +22,17 @@ lazygit
 lsd
 macchina
 mise
+ollama
 onefetch
 presenterm
 ripgrep
 sketchybar
-skhd
 starship
 stow
 superfile
-yabai
+tmate
+tmux
+w3m
+yazi
 yq
 zoxide

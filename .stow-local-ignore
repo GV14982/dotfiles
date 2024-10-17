@@ -1,11 +1,11 @@
 .git
 .gitignore
+.stowrc
+.tmate.conf
 gh
 scripts
 brew
-^/README.*
-^/LICENSE.*
-Library/Application Support/superfile/superfile.log
-Library/Application Support/superfile/lastCheckVersion
-Library/Application Support/superfile/firstUseCheck
-Library/Application Support/superfile/pinned.json
+setup.sh
+README.md
+LICENSE.md
+surfingkeys.js

@@ -1,4 +1,10 @@
+1password
+aerospace
+discord
 font-fira-code-nerd-font
 keycastr
 raycast
+slack
+thunderbird
 wezterm
+zen-browser

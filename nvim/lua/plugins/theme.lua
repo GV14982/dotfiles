@@ -35,4 +35,8 @@ return {
       vim.cmd.colorscheme 'catppuccin'
     end,
   },
+  {
+    "xiyaowong/transparent.nvim",
+    priority = -1,
+  }
 }

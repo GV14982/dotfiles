@@ -11,12 +11,9 @@ end
 
 # register completions (on-the-fly, non-cached, because the actual command won't be cached anyway
 complete -c cht.sh -xa '(curl -s cheat.sh/:list)'
+set -gx XDG_CONFIG_HOME "$HOME/.config"
 if status is-interactive
-    if string match -q "*x86*" (uname -a)
-        eval (/usr/local/bin/brew shellenv)
-    else
-        eval (/opt/homebrew/bin/brew shellenv)
-    end
+    set -gx EDITOR "nvim"
     # ALIASES
     abbr -a fexec "exec fish"
     abbr -a fishconf "$EDITOR ~/.config/fish/config.fish"
@@ -63,4 +60,8 @@ if status is-interactive
 
     # Init Zoxide
     zoxide init fish | source
+
+    # Init mise
+    mise activate fish | source
 end
+

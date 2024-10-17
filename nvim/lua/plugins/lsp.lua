@@ -6,7 +6,7 @@ return {
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-
+      'b0o/schemastore.nvim',
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       {
@@ -200,9 +200,25 @@ return {
         },
         dockerls = {},
         docker_compose_language_service = {},
-        jsonls = {},
+        jsonls = {
+          json = {
+            schemas = require("schemastore").json.schemas(),
+            validate = { enable = true }
+          }
+        },
         taplo = {},
-        yamlls = {},
+        yamlls = {
+          yaml = {
+            schemaStore = {
+              -- You must disable built-in schemaStore support if you want to use
+              -- this plugin and its advanced options like `ignore`.
+              enable = false,
+              -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+              url = "",
+            },
+            schemas = require('schemastore').yaml.schemas(),
+          },
+        },
         -- System
         gopls = {
           gopls = {
@@ -227,16 +243,15 @@ return {
       }
 
       local serverNames = {}
+      table.insert(serverNames, "nil")
       for server, _ in pairs(servers) do
         table.insert(serverNames, server)
       end
 
       -- mason-lspconfig requires that these setup functions are called in this order
       -- before setting up the servers.
-      require('mason').setup()
-      require('mason-lspconfig').setup({
-        ensure_installed = serverNames,
-        automatic_installation = true,
+      require('mason').setup({
+        log_level = vim.log.levels.DEBUG
       })
 
       -- Setup neovim lua configuration
@@ -247,22 +262,20 @@ return {
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
       -- Ensure the servers above are installed
-      local mason_lspconfig = require 'mason-lspconfig'
-
-      mason_lspconfig.setup {
-        ensure_installed = vim.tbl_keys(servers),
-      }
-
-      mason_lspconfig.setup_handlers {
-        function(server_name)
-          require('lspconfig')[server_name].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = servers[server_name],
-            filetypes = (servers[server_name] or {}).filetypes,
-          }
-        end,
-      }
+      require('mason-lspconfig').setup({
+        ensure_installed = serverNames,
+        automatic_installation = true,
+        handlers = {
+          function(server_name)
+            require('lspconfig')[server_name].setup {
+              capabilities = capabilities,
+              on_attach = on_attach,
+              settings = servers[server_name],
+              filetypes = (servers[server_name] or {}).filetypes,
+            }
+          end,
+        }
+      })
 
       require('lspconfig').gleam.setup {
         capabilities = capabilities,

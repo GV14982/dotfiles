@@ -5,6 +5,6 @@ font-fira-code-nerd-font
 keycastr
 raycast
 slack
-thunderbird
+thunderbird@esr
 wezterm
 zen-browser

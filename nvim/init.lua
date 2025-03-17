@@ -46,7 +46,8 @@ vim.g.maplocalleader = ' '
 vim.filetype.add({
   extension = {
     templ = "templ",
-    presenterm = "presenterm.markdown"
+    presenterm = "presenterm.markdown",
+    ua = "uiua",
   },
 })
 -- [[ Install `lazy.nvim` plugin manager ]]

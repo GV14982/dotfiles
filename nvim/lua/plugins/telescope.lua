@@ -4,13 +4,12 @@ return {
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-      -- Only load if `make` is available. Make sure you have the system
-      -- requirements installed.
       'ghassan0/telescope-glyph.nvim',
       'xiyaowong/telescope-emoji.nvim',
       'nvim-telescope/telescope-project.nvim',
       'nvim-telescope/telescope-file-browser.nvim',
+      'nvim-telescope/telescope-frecency.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
     },
     config = function()
       -- [[ Configure Telescope ]]
@@ -32,6 +31,8 @@ return {
       telescope.load_extension('file_browser')
       telescope.load_extension('emoji')
       telescope.load_extension('glyph')
+      telescope.load_extension('frecency')
+      telescope.load_extension('ui-select')
     end
   },
 }

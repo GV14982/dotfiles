@@ -135,9 +135,9 @@ return {
 
         nmap('<leader>dt', function()
           if vim.lsp.inlay_hint.is_enabled(bufnr) then
-            vim.lsp.inlay_hint.enable(bufnr, false)
+            vim.lsp.inlay_hint.disable(bufnr)
           else
-            vim.lsp.inlay_hint.enable(bufnr, true)
+            vim.lsp.inlay_hint.enable(bufnr)
           end
         end, '[D]ocument Inlay Hint [T]oggle')
         -- if client.server_capabilities.inlayHintProvider then
@@ -162,7 +162,7 @@ return {
         angularls = {},
         emmet_language_server = {},
         graphql = {},
-        tsserver = {
+        ts_ls = {
           typescript = {
             inlayHints = {
               includeInlayParameterNameHints = 'all',
@@ -243,7 +243,6 @@ return {
       }
 
       local serverNames = {}
-      table.insert(serverNames, "nil")
       for server, _ in pairs(servers) do
         table.insert(serverNames, server)
       end

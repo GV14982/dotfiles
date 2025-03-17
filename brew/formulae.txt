@@ -20,6 +20,7 @@ imagemagick
 jq
 lazydocker
 lazygit
+lolcat
 lsd
 macchina
 mise

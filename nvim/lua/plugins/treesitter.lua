@@ -30,7 +30,17 @@ return {
       -- See `:help nvim-treesitter`
       -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
       vim.defer_fn(function()
+        local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+        parser_config.uiua = {
+          install_info = {
+            url = "https://github.com/shnarazk/tree-sitter-uiua",
+            files = { "src/parser.c" },
+            branch = "main",
+          },
+        }
+        vim.treesitter.language.register("uiua", "ua")
         vim.treesitter.language.register("markdown", "mdx")
+        vim.treesitter.language.register("markdown", "presenterm")
         vim.treesitter.language.register("bash", "skhdrc")
         vim.treesitter.language.register("bash", "yabairc")
         vim.opt.foldmethod = "expr"

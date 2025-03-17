@@ -1,0 +1,59 @@
+{
+  "actions" : [
+    {
+      "key" : "t",
+      "label" : "",
+      "type" : "application",
+      "value" : "/Applications/Ghostty.app"
+    },
+    {
+      "key" : "/",
+      "label" : "",
+      "type" : "url",
+      "value" : "raycast://"
+    },
+    {
+      "key" : "e",
+      "label" : "",
+      "type" : "application",
+      "value" : "/Applications/Thunderbird.app"
+    },
+    {
+      "key" : "b",
+      "label" : "",
+      "type" : "application",
+      "value" : "/Applications/Zen Browser.app"
+    },
+    {
+      "key" : "d",
+      "label" : "",
+      "type" : "application",
+      "value" : "/Applications/Discord.app"
+    },
+    {
+      "key" : "s",
+      "label" : "",
+      "type" : "application",
+      "value" : "/Applications/Slack.app"
+    },
+    {
+      "key" : "m",
+      "label" : "",
+      "type" : "application",
+      "value" : "/System/Applications/Messages.app"
+    },
+    {
+      "key" : "z",
+      "label" : "",
+      "type" : "application",
+      "value" : "/Applications/zoom.us.app"
+    },
+    {
+      "key" : "g",
+      "label" : "Github",
+      "type" : "url",
+      "value" : "https://github.com/"
+    }
+  ],
+  "type" : "group"
+}

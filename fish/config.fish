@@ -12,15 +12,17 @@ end
 # register completions (on-the-fly, non-cached, because the actual command won't be cached anyway
 complete -c cht.sh -xa '(curl -s cheat.sh/:list)'
 set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx DYLD_LIBRARY_PATH "/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
 if status is-interactive
+    fish_add_path -P ~/.local/bin/
+
     set -gx EDITOR "nvim"
     # ALIASES
     abbr -a fexec "exec fish"
     abbr -a fishconf "$EDITOR ~/.config/fish/config.fish"
     abbr -a nvimconf "$EDITOR ~/.config/nvim/init.lua"
     abbr -a wezconf "$EDITOR ~/.config/wezterm/wezterm.lua"
-    abbr -a pip "pip3"
-    abbr -a python "python3"
+    abbr -a tmuxconf "$EDITOR ~/.config/tmux/tmux.conf"
     abbr -a ls "lsd"
     abbr -a la "lsd -a"
     abbr -a cat "bat"
@@ -39,7 +41,9 @@ if status is-interactive
     set -gx HOMEBREW_BAT true
 
     # Set DOCKER_HOST to work with colima
-    set -gx DOCKER_HOST unix://$HOME/.colima/default/docker.sock
+    set -gx DOCKER_HOST unix://$XDG_CONFIG_HOME/colima/default/docker.sock
+
+    set -gx DYLD_LIBRARY_PATH (brew --prefix)/lib:$DYLD_LIBRARY_PATH
 
     # Set vi mode
     set -g fish_vi_force_cursor 1
@@ -55,7 +59,7 @@ if status is-interactive
     --color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
 
     # Set FISH theme to catppuccin
-    set -g theme "Catppuccin Frappe"
+    set -g theme "Catppuccin Macchiato"
 
     # Init starship prompt
     starship init fish | source
@@ -67,3 +71,6 @@ if status is-interactive
     mise activate fish | source
 end
 
+
+# Added by Radicle.
+export PATH="$PATH:/Users/gvqz/.radicle/bin"

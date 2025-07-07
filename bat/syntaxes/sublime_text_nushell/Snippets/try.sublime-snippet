@@ -1,8 +1,0 @@
-<snippet>
-	<content><![CDATA[try {
-	${0:$TM_SELECTED_TEXT}
-}]]></content>
-	<tabTrigger>try</tabTrigger>
-	<scope>source.shell.nu</scope>
-	<description>try</description>
-</snippet>

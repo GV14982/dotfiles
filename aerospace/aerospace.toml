@@ -63,10 +63,10 @@ exec-on-workspace-change = [
 [gaps]
 inner.horizontal = 8
 inner.vertical = 8
-outer.left = 8
+outer.left = [{ monitor.built-in = 8 }, 32]
 outer.bottom = 8
-outer.top = [{ monitor.built-in = 8 }, 32]
-outer.right = 8
+outer.top = [{ monitor.built-in = 8 }, 40]
+outer.right = [{ monitor.built-in = 8 }, 40]
 
 # [workspace-to-monitor-force-assignment]
 # t = 'built-in'

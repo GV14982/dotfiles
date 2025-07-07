@@ -8,12 +8,16 @@ neovim = "latest"
 erlang = "latest"
 rebar = "latest"
 opam = "latest"
-tmux = "3.4"
 act = "latest"
 hugo = "latest"
 python = "3.9"
-stack = "latest"
 node = "latest"
 gleam = "latest"
 terraform = "latest"
 opentofu = "latest"
+deno = "latest"
+
+[env]
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]

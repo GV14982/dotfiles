@@ -23,9 +23,9 @@ if status is-interactive
     abbr -a nvimconf "$EDITOR ~/.config/nvim/init.lua"
     abbr -a wezconf "$EDITOR ~/.config/wezterm/wezterm.lua"
     abbr -a tmuxconf "$EDITOR ~/.config/tmux/tmux.conf"
-    abbr -a ls "lsd"
-    abbr -a la "lsd -a"
-    abbr -a cat "bat"
+    set -gx EZA_ICONS_AUTO true
+    alias cat "bat"
+    alias ls "eza"
 
     bind --preset -e -a \cl
     bind --preset -e -a \ca
@@ -41,7 +41,7 @@ if status is-interactive
     set -gx HOMEBREW_BAT true
 
     # Set DOCKER_HOST to work with colima
-    set -gx DOCKER_HOST unix://$XDG_CONFIG_HOME/colima/default/docker.sock
+    # set -gx DOCKER_HOST unix://$XDG_CONFIG_HOME/colima/default/docker.sock
 
     set -gx DYLD_LIBRARY_PATH (brew --prefix)/lib:$DYLD_LIBRARY_PATH
 
@@ -61,16 +61,40 @@ if status is-interactive
     # Set FISH theme to catppuccin
     set -g theme "Catppuccin Macchiato"
 
+    # Set LLM API Keys
+    set -g ANTHROPIC_API_KEY $(cat ~/.secrets/anthropic_api_key.txt)
+    set -g OPENAI_API_KEY $(cat ~/.secrets/openai_api_key.txt)
+    set -g GEMINI_API_KEY $(cat ~/.secrets/gemini_api_key.txt)
+
     # Init starship prompt
     starship init fish | source
 
     # Init Zoxide
     zoxide init fish | source
 
-    # Init mise
+    # Init Mise
     mise activate fish | source
+
+
+    set -gx PATH $PATH /Users/gvqz/.ghcup/bin
 end
 
 
 # Added by Radicle.
 export PATH="$PATH:/Users/gvqz/.radicle/bin"
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/gvqz/.lmstudio/bin
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+test -r '/Users/gvqz/.opam/opam-init/init.fish' && source '/Users/gvqz/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
+# END opam configuration

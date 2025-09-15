@@ -16,7 +16,7 @@ set -gx DYLD_LIBRARY_PATH "/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
 if status is-interactive
     fish_add_path -P ~/.local/bin/
 
-    set -gx EDITOR "nvim"
+    set -gx EDITOR nvim
     # ALIASES
     abbr -a fexec "exec fish"
     abbr -a fishconf "$EDITOR ~/.config/fish/config.fish"
@@ -24,8 +24,8 @@ if status is-interactive
     abbr -a wezconf "$EDITOR ~/.config/wezterm/wezterm.lua"
     abbr -a tmuxconf "$EDITOR ~/.config/tmux/tmux.conf"
     set -gx EZA_ICONS_AUTO true
-    alias cat "bat"
-    alias ls "eza"
+    alias cat bat
+    alias ls eza
 
     bind --preset -e -a \cl
     bind --preset -e -a \ca
@@ -75,26 +75,31 @@ if status is-interactive
     # Init Mise
     mise activate fish | source
 
-
     set -gx PATH $PATH /Users/gvqz/.ghcup/bin
-end
 
+    eval $(ssh-agent -c)
+    ssh-add ~/.ssh/id_rsa
+end
 
 # Added by Radicle.
 export PATH="$PATH:/Users/gvqz/.radicle/bin"
 
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-source ~/.orbstack/shell/init2.fish 2>/dev/null || :
-
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/gvqz/.lmstudio/bin
-
 
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-test -r '/Users/gvqz/.opam/opam-init/init.fish' && source '/Users/gvqz/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
+test -r '/Users/gvqz/.opam/opam-init/init.fish' && source '/Users/gvqz/.opam/opam-init/init.fish' >/dev/null 2>/dev/null; or true
 # END opam configuration
+
+# pnpm
+set -gx PNPM_HOME /Users/gvqz/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+set -gx DOCKER_HOST "unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')"

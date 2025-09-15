@@ -5,4 +5,11 @@
 -- Disable inline ai completions
 vim.g.ai_cmp = false
 -- Disable animations
-vim.g.snacks_animate = true
+vim.g.snacks_animate = false
+vim.filetype.add({
+  extension = {
+    templ = "templ",
+    presenterm = "markdown.presenterm",
+    ua = "uiua",
+  },
+})

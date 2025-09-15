@@ -10,12 +10,14 @@ rebar = "latest"
 opam = "latest"
 act = "latest"
 hugo = "latest"
-python = "3.9"
+python = "latest"
 node = "latest"
 gleam = "latest"
 terraform = "latest"
 opentofu = "latest"
 deno = "latest"
+rust-analyzer = "latest"
+just = "latest"
 
 [env]
 

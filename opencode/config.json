@@ -30,11 +30,13 @@
         "@upstash/context7-mcp@latest"
       ]
     },
-    "vectorcode": {
+    "playwright": {
       "type": "local",
       "enabled": true,
       "command": [
-        "vectorcode-mcp-server"
+        "npx",
+        "-y",
+        "@playwright/mcp@latest"
       ]
     }
   }

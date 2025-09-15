@@ -50,6 +50,11 @@
       "key" : "n",
       "type" : "application",
       "value" : "/Applications/NetNewsWire.app"
+    },
+    {
+      "key" : "c",
+      "type" : "application",
+      "value" : "/Applications/calibre.app"
     }
   ],
   "type" : "group"

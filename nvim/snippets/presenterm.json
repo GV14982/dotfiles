@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Yash-Singh1/vscode-snippets-json-schema/main/schema.json",
+  "End Slide": {
+    "prefix": [
+      "endslide"
+    ],
+    "description": "Adds end_slide comment for presenterm",
+    "body": "<!--end_slide-->"
+  }
+}

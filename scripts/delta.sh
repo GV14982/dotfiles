@@ -9,6 +9,6 @@ git config --global interactive.diffFilter "delta --color-only --features=intera
 git config --global delta.navigate true
 git config --global delta.line-numbers true
 git config --global delta.hyperlinks true
-git config --global delta.syntax-theme "Catppuccin-frappe"
+git config --global delta.syntax-theme "Catppuccin-macchiato"
 # Insert empty newline
 echo ""

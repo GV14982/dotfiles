@@ -12,7 +12,6 @@ end
 # register completions (on-the-fly, non-cached, because the actual command won't be cached anyway
 complete -c cht.sh -xa '(curl -s cheat.sh/:list)'
 set -gx XDG_CONFIG_HOME "$HOME/.config"
-set -gx DYLD_LIBRARY_PATH "/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
 if status is-interactive
     fish_add_path -P ~/.local/bin/
 
@@ -32,18 +31,8 @@ if status is-interactive
     bind -M insert \cl forward-word
     bind -M insert \ca accept-autosuggestion
 
-    eval (/opt/homebrew/bin/brew shellenv fish)
-
     # Set GPG_TTY to fix broken commit signing: https://github.com/fish-shell/fish-shell/issues/6643
     set -gx GPG_TTY (tty)
-
-    # Tell Homebrew to use bat instead of cat
-    set -gx HOMEBREW_BAT true
-
-    # Set DOCKER_HOST to work with colima
-    # set -gx DOCKER_HOST unix://$XDG_CONFIG_HOME/colima/default/docker.sock
-
-    set -gx DYLD_LIBRARY_PATH (brew --prefix)/lib:$DYLD_LIBRARY_PATH
 
     # Set vi mode
     set -g fish_vi_force_cursor 1
@@ -60,11 +49,6 @@ if status is-interactive
 
     # Set FISH theme to catppuccin
     set -g theme "Catppuccin Macchiato"
-
-    # Set LLM API Keys
-    set -g ANTHROPIC_API_KEY $(cat ~/.secrets/anthropic_api_key.txt)
-    set -g OPENAI_API_KEY $(cat ~/.secrets/openai_api_key.txt)
-    set -g GEMINI_API_KEY $(cat ~/.secrets/gemini_api_key.txt)
 
     # Init starship prompt
     starship init fish | source
@@ -83,9 +67,6 @@ end
 
 # Added by Radicle.
 export PATH="$PATH:/Users/gvqz/.radicle/bin"
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/gvqz/.lmstudio/bin
 
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:

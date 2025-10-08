@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Setup Homebrew
-./scripts/brew.sh
+# Setup yay
+./scripts/yay.sh
 
 # Setup Github CLI
 ./scripts/gh.sh
@@ -10,12 +10,8 @@
 echo "Creating symlinks to ~/.config"
 stow .
 
-if [ ! -d "~/.tmux/plugins/tpm" ]; then
-	echo "Installing TPM"
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
-echo "Installing tmux plugins"
-~/.tmux/plugins/tpm/bin/install_plugins
+# Setup tmux and tpm
+./scripts/tmux.sh
 
 # Setup programs managed by mise
 ./scripts/mise.sh

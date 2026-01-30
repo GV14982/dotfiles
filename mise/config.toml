@@ -1,13 +1,11 @@
 # These are my base versions for tools that I use regularly
 [tools]
 pnpm = "latest"
-yarn = "1.22.19"
 go = "latest"
 rust = "latest"
 neovim = "latest"
 erlang = "latest"
 rebar = "latest"
-opam = "latest"
 act = "latest"
 hugo = "latest"
 python = "latest"
@@ -18,8 +16,16 @@ opentofu = "latest"
 deno = "latest"
 rust-analyzer = "latest"
 just = "latest"
+usage = "latest"
+"aqua:go-task/task" = "latest"
+opam = "latest"
+"aqua:tinygo-org/tinygo" = "latest"
+elm = "latest"
 
 [env]
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
+
+[settings.python]
+compile = true

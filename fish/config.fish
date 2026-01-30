@@ -13,7 +13,7 @@ end
 complete -c cht.sh -xa '(curl -s cheat.sh/:list)'
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 if status is-interactive
-    fish_add_path -P ~/.local/bin/
+    fish_add_path -P $HOME/.local/bin/
 
     set -gx EDITOR nvim
     # ALIASES
@@ -59,28 +59,23 @@ if status is-interactive
     # Init Mise
     mise activate fish | source
 
-    set -gx PATH $PATH /Users/gvqz/.ghcup/bin
-
-    eval $(ssh-agent -c)
-    ssh-add ~/.ssh/id_rsa
+    fish_add_path $HOME/.ghcup/bin
 end
 
 # Added by Radicle.
-export PATH="$PATH:/Users/gvqz/.radicle/bin"
+fish_add_path $HOME.radicle/bin
 
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-test -r '/Users/gvqz/.opam/opam-init/init.fish' && source '/Users/gvqz/.opam/opam-init/init.fish' >/dev/null 2>/dev/null; or true
+test -r $HOME/.opam/opam-init/init.fish && source $HOME/.opam/opam-init/init.fish >/dev/null 2>/dev/null; or true
 # END opam configuration
 
 # pnpm
-set -gx PNPM_HOME /Users/gvqz/Library/pnpm
+set -gx PNPM_HOME $HOME/pnpm
 if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
+    fish_add_path "$PNPM_HOME"
 end
 # pnpm end
-
-set -gx DOCKER_HOST "unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')"

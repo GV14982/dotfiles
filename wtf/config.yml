@@ -1,0 +1,117 @@
+wtf:
+  colors:
+    background: default
+    border:
+      focusable: green
+      focused: orange
+      normal: white
+    checked: yellow
+    highlight:
+      fore: black
+      back: gray
+    rows:
+      even: yellow
+      odd: white
+  grid:
+    columns: [32, 22, 40, 30, 10]
+    rows: [9, 5, 10, 6, 3]
+  refreshInterval: 1
+  openFileUtil: "open"
+  mods:
+    # You can have multiple widgets of the same type.
+    # The "key" is the name of the widget and the type is the actual
+    # widget you want to implement.
+    weather:
+      type: prettyweather
+      title: Weather
+      enabled: true
+      position:
+        top: 0
+        left: 0
+        height: 1
+        width: 1
+      city: Philadelphia
+      refreshInterval: 5m
+      unit: u
+      view: 0
+    digital_clock:
+      focusable: false
+      title: Clock
+      type: cmdrunner
+      enabled: true
+      pty: true
+      cmd: /home/gvqz/clock.fish
+      position:
+        top: 1
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 1
+    ical:
+      type: ical
+      title: Calendar
+      enabled: true
+      sources:
+        test: https://pastebin.com/raw/tn92LAGg
+      position:
+        top: 0
+        left: 2
+        height: 5
+        width: 1
+    # americas_time:
+    #   title: "Americas"
+    #   type: clocks
+    #   colors:
+    #     rows:
+    #       even: "lightblue"
+    #       odd: "white"
+    #   enabled: true
+    #   locations:
+    #     UTC: "Etc/UTC"
+    #     New_York: "America/New_York"
+    #     Chicago: "America/Chicago"
+    #   position:
+    #     top: 2
+    #     left: 0
+    #     height: 1
+    #     width: 1
+    #   refreshInterval: 15
+    #   sort: "alphabetical"
+    # resources:
+    #   type: resourceusage
+    #   enabled: true
+    #   position:
+    #     top: 2
+    #     left: 1
+    #     height: 1
+    #     width: 1
+    #   refreshInterval: 1
+    # todolist:
+    #   type: todo
+    #   checkedIcon: "X"
+    #   colors:
+    #     checked: gray
+    #     highlight:
+    #       fore: "black"
+    #       back: "orange"
+    #   enabled: true
+    #   filename: "todo.yml"
+    #   position:
+    #     top: 1
+    #     left: 1
+    #     height: 2
+    #     width: 1
+    #   refreshInterval: 3600
+    # ip:
+    #   type: ipinfo
+    #   title: "My IP"
+    #   colors:
+    #     name: "lightblue"
+    #     value: "white"
+    #   enabled: true
+    #   position:
+    #     top: 2
+    #     left: 2
+    #     height: 1
+    #     width: 1
+    #   refreshInterval: 150

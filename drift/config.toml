@@ -1,0 +1,9 @@
+[engine]
+fps = 60
+cycle_seconds = 60      # 0 = stay on one scene
+fade_seconds = 0.3      # fade-to-black between scenes, 0 = instant cut
+scenes = "all"
+theme = "catppuccin"
+shuffle = true
+hide_tmux_status = true
+oled_shift = false      # 1-cell shift every 10s; only useful on bare OLED hardware

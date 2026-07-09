@@ -1,0 +1,29 @@
+@import "catppuccin-macchiato.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Jetbrains Mono Nerd Font, FiraCode Nerd Font Mono, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: @text;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  padding: 0 10px;
+  background-color: @base;
+  border-radius: 20px;
+}
+
+#workspaces button {
+  color: @overlay0;
+}
+
+#workspaces button.active {
+  color: @text;
+}

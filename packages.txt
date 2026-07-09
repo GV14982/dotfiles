@@ -2,6 +2,7 @@ arduino-cli
 bat
 bottom
 chafa
+drift
 eza
 fd
 ffmpeg
@@ -12,6 +13,10 @@ fzf
 gh
 git-delta
 gpg
+grim
+grimblast-git
+hyprland
+hyprmon
 imagemagick
 jq
 lazydocker
@@ -19,6 +24,7 @@ lazygit
 lolcat
 macchina
 mise
+niri
 onefetch
 podman
 podman-compose
@@ -26,14 +32,18 @@ presenterm
 radicle
 ripgrep
 sesh
+slurp
 starship
 stow
+swaybg
 thunderbird
 tmate
 tmux
 ttf-firacode-nerd
 w3m
+waybar
 wezterm
+wl-clipboard
 yazi
 yq
 zoxide

@@ -79,3 +79,8 @@ if not string match -q -- $PNPM_HOME $PATH
     fish_add_path "$PNPM_HOME"
 end
 # pnpm end
+
+# Generated for pdtm. Do not edit.
+fish_add_path /home/gvqz/.pdtm/go/bin
+
+set -gx KUBECONFIG "$KUBECONFIG:$HOME/.kube/config:$HOME/.kube/configs/ctf.yaml"

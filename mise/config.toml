@@ -3,7 +3,7 @@
 pnpm = "latest"
 go = "latest"
 rust = "latest"
-neovim = "latest"
+"github:neovim/neovim" = "latest"
 erlang = "latest"
 rebar = "latest"
 act = "latest"
@@ -21,6 +21,7 @@ usage = "latest"
 opam = "latest"
 "aqua:tinygo-org/tinygo" = "latest"
 elm = "latest"
+kotlin = { version = "latest", asset_pattern = "kotlin-compiler-*.zip", bin_path = "kotlinc/bin" }
 
 [env]
 

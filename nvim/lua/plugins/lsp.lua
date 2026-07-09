@@ -28,6 +28,10 @@ return {
           enabled = true,
           mason = true,
         },
+        mmdc = {
+          enabled = true,
+          mason = true,
+        },
       },
     },
   },
